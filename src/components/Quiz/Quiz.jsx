@@ -1,7 +1,16 @@
-import React from 'react';
-import { container, binsContainer, bin, binIcon, button } from './Quiz.styles';
+import React, { useState } from 'react';
+import { container, binsContainer, bin, button } from './Quiz.styles';
 
 export const Quiz = () => {
+    const [wasteData, setWasteData] = useState(undefined);
+
+    const getWasteData = () => {
+        fetch('./waste.json')
+            .then(response => response.json())
+            .then(response => setWasteData(response))
+            .catch(err => console.warn(err))
+    }
+
     return (
         <div className={container}>
             <h1>Quiz</h1>
@@ -28,7 +37,8 @@ export const Quiz = () => {
                     <h3>Zmieszane</h3>
                 </div>
             </div>
-            <button className={button}>Start</button>
+            <button className={button} onClick={getWasteData}>Start</button>
+            {console.log(wasteData)}
         </div>
     )
 }
