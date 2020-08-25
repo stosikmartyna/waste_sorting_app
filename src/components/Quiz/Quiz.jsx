@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export const Quiz = () => {
     const [wasteData, setWasteData] = useState(undefined);
+    const [isQuizStarted, setIsQuizStarted] = useState(false);
 
     const getWasteData = async () => {
         try {
@@ -15,10 +16,18 @@ export const Quiz = () => {
         }
     }
 
+    const handleButtonClick = () => {
+        getWasteData();
+        setIsQuizStarted(true);
+    }
+
     return (
         <div className={container}>
             <h1>Quiz</h1>
-            <h2>Sprawdź swoją wiedzę na temat segregacji śmieci</h2>
+            { !isQuizStarted 
+                ? <h2>Sprawdź swoją wiedzę na temat segregacji śmieci</h2> 
+                : <h2>Wybierz odpowiedni pojemnik dla tego rodzaju odpadu</h2> 
+            }
             <div className={binsContainer}>
                 <div className={bin}>
                     <img src="icons/recycle_bin_paper.png" alt="paper-bin"/>
@@ -41,8 +50,9 @@ export const Quiz = () => {
                     <h3>Zmieszane</h3>
                 </div>
             </div>
-            <button className={button} onClick={getWasteData}>Start</button>
-            {console.log(wasteData)}
+            {!isQuizStarted && (
+                <button className={button} onClick={handleButtonClick}>Start</button>
+            )}
         </div>
     )
 }
