@@ -10,6 +10,19 @@ export const container = css({
     }
 })
 
+export const wasteContainer = css({
+    boxShadow: '-1px 0px 17px -5px rgba(224,224,224,1)',
+    display: 'flex', 
+    justifyContent: 'center',
+    padding: '1rem 2rem',
+    width: '40vw',
+
+    '& img': {
+        marginRight: '2rem',
+        width: '80px'
+    }
+})
+
 export const binsContainer = css({
     display: 'flex',
     flexWrap: 'wrap',

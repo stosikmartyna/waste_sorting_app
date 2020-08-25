@@ -1,8 +1,8 @@
 [
    {
       "name": "Skórka od banana",
-      "description": "",
-      "img": "",
+      "description": "Lorem ipsum dolor sit amet",
+      "img": "icons/banana_peel.png",
       "properBin": "bio"
    }
 ]

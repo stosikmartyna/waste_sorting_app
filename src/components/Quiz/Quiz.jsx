@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { container, binsContainer, bin, button } from './Quiz.styles';
+import { container, wasteContainer, binsContainer, bin, button } from './Quiz.styles';
 import axios from 'axios';
 
 export const Quiz = () => {
@@ -21,13 +21,24 @@ export const Quiz = () => {
         setIsQuizStarted(true);
     }
 
+    const randomElement = wasteData && wasteData[0];
+
     return (
         <div className={container}>
             <h1>Quiz</h1>
-            { !isQuizStarted 
+            {!isQuizStarted 
                 ? <h2>Sprawdź swoją wiedzę na temat segregacji śmieci</h2> 
                 : <h2>Wybierz odpowiedni pojemnik dla tego rodzaju odpadu</h2> 
             }
+            {isQuizStarted && wasteData && (
+                <div className={wasteContainer}>
+                    <img src={randomElement.img}/> 
+                    <div>
+                        <h3>{randomElement.name}</h3>
+                        <p>{randomElement.description}</p>
+                    </div>
+                </div>
+            )}
             <div className={binsContainer}>
                 <div className={bin}>
                     <img src="icons/recycle_bin_paper.png" alt="paper-bin"/>
