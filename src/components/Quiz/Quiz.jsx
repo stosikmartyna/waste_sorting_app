@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { container, wasteContainer, binsContainer, bin, button } from './Quiz.styles';
 import axios from 'axios';
 
 export const Quiz = () => {
     const [wasteData, setWasteData] = useState(undefined);
+    const [randomWaste, setRandomWaste] = useState(undefined);
     const [isQuizStarted, setIsQuizStarted] = useState(false);
 
     const getWasteData = async () => {
@@ -16,21 +17,32 @@ export const Quiz = () => {
         }
     }
 
-    const handleButtonClick = () => {
-        getWasteData();
+    const handleQuizStart = () => {
         setIsQuizStarted(true);
+        getRandomElement();
     }
 
-    const randomElement = wasteData && wasteData[0];
+    const getRandomElement = () => {
+        wasteData && setRandomWaste(wasteData[Math.floor(Math.random() * wasteData.length)]);
+    }
+
+    const handleCorrectAnswer = () => {
+        alert('Brawo!')
+        getRandomElement();
+    }
 
     const handleBinClick = (binType) => {
         if (isQuizStarted) {
-            const isCorrect = randomElement.properBin === binType
+            const isCorrect = randomWaste.properBin === binType
             isCorrect
-                ? alert('Brawo!')
+                ? handleCorrectAnswer()
                 : alert('Zła odpowiedź')
         }
     }
+
+    useEffect(() => {
+        getWasteData();
+    }, [])
 
     return (
         <div className={container}>
@@ -39,39 +51,39 @@ export const Quiz = () => {
                 ? <h2>Sprawdź swoją wiedzę na temat segregacji śmieci</h2> 
                 : <h2>Wybierz odpowiedni pojemnik dla tego rodzaju odpadu</h2> 
             }
-            {isQuizStarted && wasteData && (
+            {isQuizStarted && randomWaste && (
                 <div className={wasteContainer}>
-                    <img src={randomElement.img} alt={randomElement.name}/> 
+                    <img src={randomWaste.img} alt={randomWaste.name}/> 
                     <div>
-                        <h3>{randomElement.name}</h3>
-                        <p>{randomElement.description}</p>
+                        <h3>{randomWaste.name}</h3>
+                        <p>{randomWaste.description}</p>
                     </div>
                 </div>
             )}
             <div className={binsContainer}>
-                <div className={bin} onClick={() => handleBinClick('paper')}>
+                <div className={bin(isQuizStarted)} onClick={() => handleBinClick('paper')}>
                     <img src="icons/recycle_bin_paper.png" alt="paper-bin"/>
                     <h3>Papier</h3>
                 </div>
-                <div className={bin} onClick={() => handleBinClick('plastic')}>
+                <div className={bin(isQuizStarted)} onClick={() => handleBinClick('plastic')}>
                     <img src="icons/recycle_bin_plastic.png" alt="plastic-bin"/>
                     <h3>Plastik</h3>
                 </div>
-                <div className={bin} onClick={() => handleBinClick('glass')}>
+                <div className={bin(isQuizStarted)} onClick={() => handleBinClick('glass')}>
                     <img src="icons/recycle_bin_glass.png" alt="glass-bin"/>
                     <h3>Szkło</h3>
                 </div>
-                <div className={bin} onClick={() => handleBinClick('bio')}>
+                <div className={bin(isQuizStarted)} onClick={() => handleBinClick('bio')}>
                     <img src="icons/recycle_bin_bio.png" alt="bio-bin"/>
                     <h3>Bio</h3>
                 </div>
-                <div className={bin} onClick={() => handleBinClick('mixed')}>
+                <div className={bin(isQuizStarted)} onClick={() => handleBinClick('mixed')}>
                     <img src="icons/recycle_bin_mix.png" alt="mixed-bin"/>
                     <h3>Zmieszane</h3>
                 </div>
             </div>
             {!isQuizStarted && (
-                <button className={button} onClick={handleButtonClick}>Start</button>
+                <button className={button} onClick={handleQuizStart}>Start</button>
             )}
         </div>
     )

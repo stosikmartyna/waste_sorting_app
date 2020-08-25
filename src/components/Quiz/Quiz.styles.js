@@ -24,14 +24,13 @@ export const wasteContainer = css({
 })
 
 export const binsContainer = css({
-    cursor: 'pointer',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     marginTop: '4rem',
 })
 
-export const bin = css({
+export const bin = (isClickable) => css({
     textAlign: 'center',
     
     '& h3': {
@@ -45,7 +44,8 @@ export const bin = css({
     },
 
     '& img:hover': {
-        transform: 'scale(1.1)',
+        cursor: isClickable && 'pointer',
+        transform: isClickable && 'scale(1.1)',
     },
 })
 
