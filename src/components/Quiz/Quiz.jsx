@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { container, binsContainer, bin, button } from './Quiz.styles';
+import axios from 'axios';
 
 export const Quiz = () => {
     const [wasteData, setWasteData] = useState(undefined);
 
-    const getWasteData = () => {
-        fetch('./waste.json')
-            .then(response => response.json())
-            .then(response => setWasteData(response))
-            .catch(err => console.warn(err))
+    const getWasteData = async () => {
+        try {
+            const response = await axios.get('./waste.json')
+            setWasteData(response.data)
+        }
+        catch (err) {
+            console.warn(err)
+        }
     }
 
     return (
