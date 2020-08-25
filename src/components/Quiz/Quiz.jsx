@@ -23,6 +23,15 @@ export const Quiz = () => {
 
     const randomElement = wasteData && wasteData[0];
 
+    const handleBinClick = (binType) => {
+        if (isQuizStarted) {
+            const isCorrect = randomElement.properBin === binType
+            isCorrect
+                ? alert('Brawo!')
+                : alert('Zła odpowiedź')
+        }
+    }
+
     return (
         <div className={container}>
             <h1>Quiz</h1>
@@ -32,7 +41,7 @@ export const Quiz = () => {
             }
             {isQuizStarted && wasteData && (
                 <div className={wasteContainer}>
-                    <img src={randomElement.img}/> 
+                    <img src={randomElement.img} alt={randomElement.name}/> 
                     <div>
                         <h3>{randomElement.name}</h3>
                         <p>{randomElement.description}</p>
@@ -40,23 +49,23 @@ export const Quiz = () => {
                 </div>
             )}
             <div className={binsContainer}>
-                <div className={bin}>
+                <div className={bin} onClick={() => handleBinClick('paper')}>
                     <img src="icons/recycle_bin_paper.png" alt="paper-bin"/>
                     <h3>Papier</h3>
                 </div>
-                <div className={bin}>
+                <div className={bin} onClick={() => handleBinClick('plastic')}>
                     <img src="icons/recycle_bin_plastic.png" alt="plastic-bin"/>
                     <h3>Plastik</h3>
                 </div>
-                <div className={bin}>
+                <div className={bin} onClick={() => handleBinClick('glass')}>
                     <img src="icons/recycle_bin_glass.png" alt="glass-bin"/>
                     <h3>Szkło</h3>
                 </div>
-                <div className={bin}>
+                <div className={bin} onClick={() => handleBinClick('bio')}>
                     <img src="icons/recycle_bin_bio.png" alt="bio-bin"/>
                     <h3>Bio</h3>
                 </div>
-                <div className={bin}>
+                <div className={bin} onClick={() => handleBinClick('mixed')}>
                     <img src="icons/recycle_bin_mix.png" alt="mixed-bin"/>
                     <h3>Zmieszane</h3>
                 </div>

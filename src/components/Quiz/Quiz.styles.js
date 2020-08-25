@@ -24,6 +24,7 @@ export const wasteContainer = css({
 })
 
 export const binsContainer = css({
+    cursor: 'pointer',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
