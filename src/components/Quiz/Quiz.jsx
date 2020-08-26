@@ -23,7 +23,11 @@ export const Quiz = () => {
     }
 
     const getRandomElement = () => {
-        wasteData && setRandomWaste(wasteData[Math.floor(Math.random() * wasteData.length)]);
+        const random = wasteData && wasteData[Math.floor(Math.random() * wasteData.length)]
+        setRandomWaste(random);
+
+        const updatedWasteData = wasteData.filter(element => element !== random);
+        setWasteData(updatedWasteData);
     }
 
     const handleCorrectAnswer = () => {

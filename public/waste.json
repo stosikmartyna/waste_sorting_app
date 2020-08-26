@@ -76,5 +76,41 @@
       "description": "",
       "img": "icons/beer_bottle.png",
       "properBin": "glass"
+   },
+   {
+      "name": "Słoik po kremie czekoladowym",
+      "description": "",
+      "img": "icons/chocolate.png",
+      "properBin": "glass"
+   },
+   {
+      "name": "Słoik po miodzie",
+      "description": "",
+      "img": "icons/honey.png",
+      "properBin": "glass"
+   },
+   {
+      "name": "Gazeta",
+      "description": "",
+      "img": "icons/newspaper.png",
+      "properBin": "paper"
+   },
+   {
+      "name": "Kartki",
+      "description": "",
+      "img": "icons/document.png",
+      "properBin": "paper"
+   },
+   {
+      "name": "Zbita fliżanka",
+      "description": "",
+      "img": "icons/cup.png",
+      "properBin": "mixed"
+   },
+   {
+      "name": "Zbita lampka do wina",
+      "description": "",
+      "img": "icons/wine_glass.png",
+      "properBin": "mixed"
    }
 ]
