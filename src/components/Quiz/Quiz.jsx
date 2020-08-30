@@ -3,11 +3,13 @@ import axios from 'axios';
 import { container, button } from './Quiz.styles';
 import { QuizBins } from './QuizBins';
 import { QuizWaste } from './QuizWaste';
+import { QuizAnswerLabel } from './QuizAnswerLabel';
 
 export const Quiz = () => {
     const [wasteData, setWasteData] = useState(undefined);
     const [randomWaste, setRandomWaste] = useState(undefined);
     const [isQuizStarted, setIsQuizStarted] = useState(false);
+    const [isAnswerCorrect, setIsAnswerCorrect] = useState(undefined);
 
     const getWasteData = async () => {
         try {
@@ -33,16 +35,14 @@ export const Quiz = () => {
     }
 
     const handleCorrectAnswer = () => {
-        alert('Brawo!')
-        getRandomElement();
+        setIsAnswerCorrect(true);
     }
 
     const handleBinClick = (binType) => {
         if (isQuizStarted) {
-            const isCorrect = randomWaste.properBin === binType
-            isCorrect
+            randomWaste.properBin === binType
                 ? handleCorrectAnswer()
-                : alert('Zła odpowiedź')
+                : setIsAnswerCorrect(false)
         }
     }
 
@@ -57,6 +57,14 @@ export const Quiz = () => {
                 ? <QuizWaste randomWaste={randomWaste} />
                 : <h2>Sprawdź swoją wiedzę na temat segregacji śmieci</h2>
             }
+            {isAnswerCorrect !== undefined && (
+                <QuizAnswerLabel 
+                    randomWaste={randomWaste} 
+                    isAnswerCorrect={isAnswerCorrect} 
+                    setIsAnswerCorrect={setIsAnswerCorrect} 
+                    getRandomElement={getRandomElement} 
+                />
+            )}
             <QuizBins onBinClick={handleBinClick} isQuizStarted={isQuizStarted} />
             {!isQuizStarted && (
                 <button className={button} onClick={handleQuizStart}>Start</button>

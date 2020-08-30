@@ -10,7 +10,7 @@ export const QuizBins = ({onBinClick, isQuizStarted}) => {
             </div>
             <div className={bin(isQuizStarted)} onClick={() => onBinClick('plastic')}>
                 <img src="icons/recycle_bin_plastic.png" alt="plastic-bin"/>
-                <h3>Plastik</h3>
+                <h3>Metale i tworzywa sztuczne</h3>
             </div>
             <div className={bin(isQuizStarted)} onClick={() => onBinClick('glass')}>
                 <img src="icons/recycle_bin_glass.png" alt="glass-bin"/>

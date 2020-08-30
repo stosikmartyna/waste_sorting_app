@@ -32,6 +32,7 @@ export const binsContainer = css({
 
 export const bin = (isClickable) => css({
     textAlign: 'center',
+    width: '230px',
     
     '& h3': {
         fontWeight: '100',
@@ -63,5 +64,19 @@ export const button = css({
     
     '&:hover': {
         background: '#731422',
+    }
+})
+
+export const answerLabel = (isCorrect) => css({
+    backgroundColor: isCorrect ? '#CCFFA9' : '#FF3F3F',
+    boxShadow: '-1px 0px 17px -5px rgba(224,224,224,1)',
+    display: 'flex', 
+    justifyContent: 'center',
+    padding: '1rem 2rem',
+    width: '40vw',
+
+    '& img': {
+        marginRight: '2rem',
+        width: '80px'
     }
 })
