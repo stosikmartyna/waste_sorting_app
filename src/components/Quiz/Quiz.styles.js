@@ -11,6 +11,7 @@ export const container = css({
 })
 
 export const wasteContainer = css({
+    alignItems: 'center',
     boxShadow: '-1px 0px 17px -5px rgba(224,224,224,1)',
     display: 'flex', 
     justifyContent: 'center',

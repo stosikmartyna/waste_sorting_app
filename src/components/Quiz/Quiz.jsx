@@ -53,7 +53,7 @@ export const Quiz = () => {
     return (
         <div className={container}>
             <h1>Quiz</h1>
-            {isQuizStarted 
+            {isQuizStarted && isAnswerCorrect === undefined
                 ? <QuizWaste randomWaste={randomWaste} />
                 : <h2>Sprawdź swoją wiedzę na temat segregacji śmieci</h2>
             }
