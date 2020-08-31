@@ -68,15 +68,37 @@ export const button = css({
 })
 
 export const answerLabel = (isCorrect) => css({
-    backgroundColor: isCorrect ? '#CCFFA9' : '#FF3F3F',
+    alignItems: 'center',
+    backgroundColor: isCorrect ? '#CCFFA9' : '#FF9191',
+    borderRadius: '3px',
     boxShadow: '-1px 0px 17px -5px rgba(224,224,224,1)',
-    display: 'flex', 
-    justifyContent: 'center',
+    display: 'flex',
+    justifyContent: isCorrect ? 'space-between' : 'start',
     padding: '1rem 2rem',
     width: '40vw',
 
     '& img': {
-        marginRight: '2rem',
         width: '80px'
+    },
+
+    '& button': {
+        backgroundColor: isCorrect ? '#a5d266' : '#e24c4b',
+        border: 'none',
+        borderRadius: '3px',
+        boxShadow: '0px 0px 5px 0px rgba(207,207,207,1)',
+        cursor: 'pointer',
+        outline: 'none',
+        padding: '.3rem .7rem',
+        textTransform: 'uppercase',
+
+        '&:hover': {
+            backgroundColor: '#8ec73e',
+        }
     }
 })
+
+export const randomWasteWrapper = (isCorrect) => css({
+    marginRight: !isCorrect ? '64px' : 'auto',
+    textAlign: 'center',
+    width: '100%',    
+});

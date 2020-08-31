@@ -1,5 +1,5 @@
 import React from 'react';
-import { answerLabel } from './Quiz.styles';
+import { answerLabel, randomWasteWrapper } from './Quiz.styles';
 
 export const QuizAnswerLabel = ({randomWaste, isAnswerCorrect, setIsAnswerCorrect, getRandomElement}) => {
     const handleButtonClick = () => {
@@ -10,13 +10,15 @@ export const QuizAnswerLabel = ({randomWaste, isAnswerCorrect, setIsAnswerCorrec
     return (
         <div className={answerLabel(isAnswerCorrect)}>
             <img src={isAnswerCorrect ? 'icons/correct.png' : 'icons/error.png'} alt={randomWaste.name}/> 
-            <div>
+            <div className={randomWasteWrapper(isAnswerCorrect)}>
                 <h3>{randomWaste.name}</h3>
-                <p>{randomWaste.description}</p>
+                <span>{randomWaste.description}</span>
             </div>
-            <button disabled={!isAnswerCorrect} onClick={handleButtonClick}>
-                Dalej
-            </button>
+            {isAnswerCorrect && (
+                <button onClick={handleButtonClick}>
+                    Dalej
+                </button>
+            )}
         </div>
     )
 }
