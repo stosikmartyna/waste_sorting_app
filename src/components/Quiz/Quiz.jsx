@@ -39,7 +39,7 @@ export const Quiz = () => {
     }
 
     const handleBinClick = (binType) => {
-        if (isQuizStarted) {
+        if (isQuizStarted && randomWaste) {
             randomWaste.properBin === binType
                 ? handleCorrectAnswer()
                 : setIsAnswerCorrect(false)
@@ -53,7 +53,7 @@ export const Quiz = () => {
     return (
         <div className={container}>
             <h1>Quiz</h1>
-            {isQuizStarted && isAnswerCorrect === undefined
+            {isQuizStarted && isAnswerCorrect === undefined && randomWaste
                 ? <QuizWaste randomWaste={randomWaste} />
                 : <h2>Sprawdź swoją wiedzę na temat segregacji śmieci</h2>
             }
@@ -65,7 +65,8 @@ export const Quiz = () => {
                     getRandomElement={getRandomElement} 
                 />
             )}
-            <QuizBins onBinClick={handleBinClick} isQuizStarted={isQuizStarted} />
+            {isQuizStarted && !randomWaste && <h2>Koniec gry</h2>}
+            <QuizBins onBinClick={handleBinClick} randomWaste={randomWaste} />
             {!isQuizStarted && (
                 <button className={button} onClick={handleQuizStart}>Start</button>
             )}
