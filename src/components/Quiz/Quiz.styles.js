@@ -1,17 +1,33 @@
 import { css } from 'emotion';
 
+export const mediaQueries= {
+    M: `@media (max-width: 600px)`
+}
+
 export const container = css({
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
 
     '& h1': {
-        fontSize: '2.5rem',
+        fontFamily: 'Oswald-Regular',
+        fontSize: '5rem',
+        margin: 0,
+        marginTop: '.75rem',
+    },
+
+    '& h2': {
+        fontFamily: 'Oswald-Regular',
+        fontSize: '1.75rem',
+        letterSpacing: '.1rem',
+        textAlign: 'center',
     }
 })
 
 export const wasteContainer = css({
     alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.869)',
+    borderRadius: '5px',
     boxShadow: '-1px 0px 17px -5px rgba(224,224,224,1)',
     display: 'flex', 
     justifyContent: 'center',
@@ -19,6 +35,7 @@ export const wasteContainer = css({
     width: '40vw',
 
     '& img': {
+        filter: 'drop-shadow(0 0 0.55rem #f0f0f0)',
         marginRight: '2rem',
         width: '80px'
     }
@@ -27,11 +44,12 @@ export const wasteContainer = css({
 export const binsContainer = css({
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    marginTop: '4rem',
+    justifyContent: 'center',
+    marginTop: '2rem'
 })
 
 export const bin = (isClickable) => css({
+    filter: 'drop-shadow(0 0 0.35rem #b8b8b8)',
     textAlign: 'center',
     width: '230px',
     
@@ -52,9 +70,10 @@ export const bin = (isClickable) => css({
 })
 
 export const button = css({
-    background: '#960f19',
+    background: '#4caf50',
     border: 'none',
     borderRadius: '3px',
+    boxShadow: '0px 0px 5px 0px rgba(207,207,207,1)',
     color: 'white',
     cursor: 'pointer',
     fontSize: '1rem',
@@ -64,19 +83,22 @@ export const button = css({
     textTransform: 'uppercase',
     
     '&:hover': {
-        background: '#731422',
+        background: '#3d9640',
     }
 })
 
 export const answerLabel = (isCorrect) => css({
     alignItems: 'center',
     backgroundColor: isCorrect ? '#CCFFA9' : '#FF9191',
-    borderRadius: '3px',
+    borderRadius: '5px',
     boxShadow: '-1px 0px 17px -5px rgba(224,224,224,1)',
     display: 'flex',
     justifyContent: isCorrect ? 'space-between' : 'start',
     padding: '1rem 2rem',
     width: '40vw',
+    [mediaQueries.M]: {
+        flexDirection: 'column',
+    }, 
 
     '& img': {
         width: '80px'
@@ -101,5 +123,8 @@ export const answerLabel = (isCorrect) => css({
 export const randomWasteWrapper = (isCorrect) => css({
     marginRight: !isCorrect ? '64px' : 'auto',
     textAlign: 'center',
-    width: '100%',    
+    width: '100%',
+    [mediaQueries.M]: {
+        marginRight: 'auto',
+    }   
 });

@@ -53,10 +53,13 @@ export const Quiz = () => {
     return (
         <div className={container}>
             <h1>Quiz</h1>
-            {isQuizStarted && isAnswerCorrect === undefined && randomWaste
-                ? <QuizWaste randomWaste={randomWaste} />
+            {isQuizStarted 
+                ? <h2>Wybierz odpowiedni pojemnik dla tego rodzaju odpadu</h2>
                 : <h2>Sprawdź swoją wiedzę na temat segregacji śmieci</h2>
             }
+            {isQuizStarted && isAnswerCorrect === undefined && randomWaste && (
+               <QuizWaste randomWaste={randomWaste} />
+            )}
             {isAnswerCorrect !== undefined && (
                 <QuizAnswerLabel 
                     randomWaste={randomWaste} 
