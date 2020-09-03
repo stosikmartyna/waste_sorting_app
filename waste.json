@@ -1,0 +1,116 @@
+[
+   {
+      "name": "Skórka od banana",
+      "description": "",
+      "img": "icons/banana_peel.png",
+      "properBin": "bio"
+   },
+   {
+      "name": "Karton po mleku",
+      "description": "",
+      "img": "icons/milk.png",
+      "properBin": "plastic"
+   },
+   {
+      "name": "Butelka po napoju",
+      "description": "",
+      "img": "icons/soda.png",
+      "properBin": "plastic"
+   },
+   {
+      "name": "Chusteczki higieniczne",
+      "description": "",
+      "img": "icons/tissue.png",
+      "properBin": "mixed"
+   },
+   {
+      "name": "Karton po pizzy",
+      "description": "",
+      "img": "icons/pizza.png",
+      "properBin": "mixed"
+   },
+   {
+      "name": "Paczka po chipsach",
+      "description": "",
+      "img": "icons/snack.png",
+      "properBin": "plastic"
+   },
+   {
+      "name": "Saszetka po mokrym jedzeniu dla zwierząt",
+      "description": "",
+      "img": "icons/pet_food.png",
+      "properBin": "mixed"
+   },
+   {
+      "name": "Karton po meblach",
+      "description": "",
+      "img": "icons/carton_box.png",
+      "properBin": "paper"
+   },
+   {
+      "name": "Puszka konserwowa",
+      "description": "",
+      "img": "icons/can.png",
+      "properBin": "plastic"
+   },
+   {
+      "name": "Rybie ości",
+      "description": "",
+      "img": "icons/fishbones.png",
+      "properBin": "mixed"
+   },
+   {
+      "name": "Słoik po dżemie",
+      "description": "",
+      "img": "icons/jar_jam.png",
+      "properBin": "glass"
+   },
+   {
+      "name": "Ręcznik papierowy",
+      "description": "",
+      "img": "icons/paper_towel.png",
+      "properBin": "mixed"
+   },
+   {
+      "name": "Butelki po piwie",
+      "description": "",
+      "img": "icons/beer_bottle.png",
+      "properBin": "glass"
+   },
+   {
+      "name": "Słoik po kremie czekoladowym",
+      "description": "",
+      "img": "icons/chocolate.png",
+      "properBin": "glass"
+   },
+   {
+      "name": "Słoik po miodzie",
+      "description": "",
+      "img": "icons/honey.png",
+      "properBin": "glass"
+   },
+   {
+      "name": "Gazeta",
+      "description": "",
+      "img": "icons/newspaper.png",
+      "properBin": "paper"
+   },
+   {
+      "name": "Kartki",
+      "description": "",
+      "img": "icons/document.png",
+      "properBin": "paper"
+   },
+   {
+      "name": "Zbita fliżanka",
+      "description": "",
+      "img": "icons/cup.png",
+      "properBin": "mixed"
+   },
+   {
+      "name": "Zbita lampka do wina",
+      "description": "",
+      "img": "icons/wine_glass.png",
+      "properBin": "mixed"
+   }
+]
