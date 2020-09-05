@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/waste_sorting_app/static/css/main.74dbbaff.chunk.css",
+    "main.css": "/waste_sorting_app/static/css/main.5ed810c5.chunk.css",
     "main.js": "/waste_sorting_app/static/js/main.a772333c.chunk.js",
     "main.js.map": "/waste_sorting_app/static/js/main.a772333c.chunk.js.map",
     "runtime-main.js": "/waste_sorting_app/static/js/runtime-main.cf4e8d82.js",
@@ -8,16 +8,16 @@
     "static/js/2.3238dcdd.chunk.js": "/waste_sorting_app/static/js/2.3238dcdd.chunk.js",
     "static/js/2.3238dcdd.chunk.js.map": "/waste_sorting_app/static/js/2.3238dcdd.chunk.js.map",
     "index.html": "/waste_sorting_app/index.html",
-    "precache-manifest.6ff77e420da83403aedac0d572ee6766.js": "/waste_sorting_app/precache-manifest.6ff77e420da83403aedac0d572ee6766.js",
+    "precache-manifest.032c1581ec7337c3e1b639efd69bb15c.js": "/waste_sorting_app/precache-manifest.032c1581ec7337c3e1b639efd69bb15c.js",
     "service-worker.js": "/waste_sorting_app/service-worker.js",
-    "static/css/main.74dbbaff.chunk.css.map": "/waste_sorting_app/static/css/main.74dbbaff.chunk.css.map",
+    "static/css/main.5ed810c5.chunk.css.map": "/waste_sorting_app/static/css/main.5ed810c5.chunk.css.map",
     "static/js/2.3238dcdd.chunk.js.LICENSE.txt": "/waste_sorting_app/static/js/2.3238dcdd.chunk.js.LICENSE.txt",
     "static/media/App.css": "/waste_sorting_app/static/media/Ubuntu-Regular.2505bfbd.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.cf4e8d82.js",
     "static/js/2.3238dcdd.chunk.js",
-    "static/css/main.74dbbaff.chunk.css",
+    "static/css/main.5ed810c5.chunk.css",
     "static/js/main.a772333c.chunk.js"
   ]
 }

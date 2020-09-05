@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1922f314aba6be7a2222c4bc96545cad",
+    "revision": "f2736b08028f973af9832e9e16175ae2",
     "url": "/waste_sorting_app/index.html"
   },
   {
-    "revision": "c371fc52aeb49bf28e59",
-    "url": "/waste_sorting_app/static/css/main.74dbbaff.chunk.css"
+    "revision": "198bb54f63fd7d1b73e0",
+    "url": "/waste_sorting_app/static/css/main.5ed810c5.chunk.css"
   },
   {
     "revision": "17a132c9a1f0fc0a617b",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/waste_sorting_app/static/js/2.3238dcdd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c371fc52aeb49bf28e59",
+    "revision": "198bb54f63fd7d1b73e0",
     "url": "/waste_sorting_app/static/js/main.a772333c.chunk.js"
   },
   {
