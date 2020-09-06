@@ -1,4 +1,16 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# WasteSorting App
+
+This application was created to develop my skills as frontend dev: 
+- React library,
+- fetching and displaying data from json file,
+- using Emotion CSS library.
+
+## GitHub Pages
+
+Link: [Waste Sorting App](https://stosikmartyna.github.io/waste_sorting_app/)
+
+## Screenshot
+> ![screenshots](README.png?raw=true "Screenshot")
 
 ## Available Scripts
 
