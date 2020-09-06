@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { render } from '@testing-library/react';
+import { render, wait } from '@testing-library/react';
 import { Quiz } from '../../components/Quiz/Quiz';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect'; 
 
 describe('Quiz component', () => {
@@ -32,5 +33,37 @@ describe('Quiz component', () => {
 
         expect(axios.get).toHaveBeenCalledTimes(1);
         expect(axios.get).toHaveBeenCalledWith('./waste.json');
-    })
+    });
+
+    it('renders waste and replaced subheader while quiz started', async() => {
+        jest.spyOn(axios, 'get').mockResolvedValue({ 
+            data: [
+                {
+                    name: "Waste Mock",
+                    description: "some description",
+                    img: "image.png",
+                    properBin: "bio"
+                }
+            ]
+        });
+
+        const {getByRole, queryByRole, getByText} = render(<Quiz />);
+
+        await wait();
+        userEvent.click(getByRole('button', { name: /start/i }));
+
+        // Subheader should be changed
+        const defaultSubheader = queryByRole('heading', { name: /sprawdź swoją wiedzę na temat segregacji śmieci/i });
+        const expectedSubheader = getByRole('heading', { name: /wybierz odpowiedni pojemnik dla tego rodzaju odpadu/i });
+        expect(defaultSubheader).not.toBeInTheDocument();
+        expect(expectedSubheader).toBeInTheDocument();
+
+        // mocked value rendered in QuizWaste label component
+        const mockWasteImg = getByRole('img', { name: /waste mock/i });
+        const mockWasteName = getByText(/waste mock/i);
+        const mockWasteDescription = getByText(/some description/i);
+        expect(mockWasteImg).toBeInTheDocument();
+        expect(mockWasteName).toBeInTheDocument();
+        expect(mockWasteDescription).toBeInTheDocument();
+    });
 });
