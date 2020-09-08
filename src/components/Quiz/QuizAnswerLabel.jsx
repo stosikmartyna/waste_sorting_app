@@ -7,8 +7,10 @@ export const QuizAnswerLabel = ({randomWaste, isAnswerCorrect, setIsAnswerCorrec
         setIsAnswerCorrect(undefined)
     } 
 
+    const dataTestId = `${isAnswerCorrect ? 'correct' : 'wrong'}-answer-label`
+
     return (
-        <div className={answerLabel(isAnswerCorrect)}>
+        <div className={answerLabel(isAnswerCorrect)} data-testid={dataTestId}>
             <img src={isAnswerCorrect ? 'icons/correct.png' : 'icons/error.png'} alt={randomWaste.name}/> 
             <div className={randomWasteWrapper(isAnswerCorrect)}>
                 <h3>{randomWaste.name}</h3>

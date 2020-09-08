@@ -66,4 +66,29 @@ describe('Quiz component', () => {
         expect(mockWasteName).toBeInTheDocument();
         expect(mockWasteDescription).toBeInTheDocument();
     });
+
+    it('renders label with answer when click on waste bin', async() => {
+        jest.spyOn(axios, 'get').mockResolvedValue({ 
+            data: [
+                {
+                    name: "Waste Mock",
+                    description: "some description",
+                    img: "image.png",
+                    properBin: "bio"
+                }
+            ]
+        });
+
+        const {getByRole, getByTestId} = render(<Quiz />);
+
+        await wait();
+        userEvent.click(getByRole('button', { name: /start/i }));
+
+        userEvent.click(getByRole('img', { name: /plastic\-bin/i }))
+        expect(getByTestId('wrong-answer-label')).toBeInTheDocument();
+
+        userEvent.click(getByRole('img', { name: /bio\-bin/i }))
+        expect(getByTestId('correct-answer-label')).toBeInTheDocument();
+        expect(getByRole('button', { name: /dalej/i })).toBeInTheDocument();
+    });
 });
